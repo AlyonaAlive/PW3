@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+<context:annotation-config/>
+<bean id = "phone"
+class = "myclasses.FirstPhone"/>
+<bean id = "phone1"
+class = "myclasses.SecondPhone"><constructor-arg value = "102"/></bean>
+<bean id = "myVideo"
+class = "myclasses.MyVideo"/>
+<bean id = "videoPhone"
+class = "myclasses.VideoPhone"><constructor-arg ref = "myVideo"/><constructor-arg value = "103"/></bean>
+<bean id = "myShop"
+class = "myclasses.Shop"
+factory-method = "getInstance"/>
+<bean id = "firstSF"
+class = "myclasses.SharePhoto"/>
+<bean id = "ShareBook"
+class = "myclasses.ShareBook"/>
+<bean id = "mySuperPh"
+class = "myclasses.SuperPhone" autowire="byName">
+<property name="message" value = "hello"></property>
+</bean>
+<bean id = "SuperPuperPhone"
+class = "myclasses.SuperPuperPhone">
+</bean>
+<bean id = "SuperPuperPhoneNew"
+class = "myclasses.SuperPuperPhoneNew">
+<property name = "files">
+<map><entry key = "sharephoto" value-ref = "SharePhoto"/>
+<entry key = " sharebook" value-ref ="ShareBook"/>
+</map></property></bean>
+</beans>
